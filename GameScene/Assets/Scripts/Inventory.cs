@@ -21,6 +21,7 @@ public class Inventory : MonoBehaviour
         {
             curseObjects.Add(curseItem);
             curseItem.SetActive(false);
+            this.GetComponent<sanityHandler>().incorporateSanity(curseObjects.Count);
         }
     }
 
@@ -30,6 +31,10 @@ public class Inventory : MonoBehaviour
         {
             for (int i = 0; i <= curseObjects.Count; i++)
             {
+                if (curseItem != null)
+                {
+                    this.GetComponent<sanityHandler>().lowerDrain(curseObjects.Count);
+                }
                 curseObjects.Remove(curseItem);
             }
         }
@@ -38,6 +43,11 @@ public class Inventory : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         isInRange = true;
+        if(other.gameObject.tag == "Cursed")
+        {
+            //
+            curseItem = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
