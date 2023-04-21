@@ -8,6 +8,9 @@ public class flashLight : MonoBehaviour
     [SerializeField]
     private GameObject fLight;
 
+    [SerializeField]
+    private GameObject fpc;
+
     //A singular bool will be used
     public bool lightState;
     public bool clickState;
@@ -15,7 +18,8 @@ public class flashLight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightActive();
+        lightState = false;
+        Invoke("lightActive", 0.5f);
     }
 
     //This method will check for input and run itself
@@ -63,6 +67,7 @@ public class flashLight : MonoBehaviour
         else
         {
             fLight.SetActive(false);
+            fpc.GetComponent<PlayAudioCall>().playAudioTrack();
         }
     }
 }

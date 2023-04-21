@@ -49,6 +49,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\UI Scripts\sanityBar.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\sanityHandler.cs" />
+     <Compile Include="Assets\Scripts\Objects\cursedParticleSystem.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\flashLight.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
  <Reference Include="UnityEngine">

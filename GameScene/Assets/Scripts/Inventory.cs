@@ -5,25 +5,14 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
-    private GameObject curseFireAlpha;
+    private GameObject[] curseFire;
 
-    [SerializeField]
-    private GameObject curseFireAdd;
-
-    [SerializeField]
-    private GameObject curseFireGlow;
-
-    [SerializeField]
-    private GameObject curseFireSparks;
-
-    [SerializeField]
-    private GameObject curseSmoke;
-
-    private int fireDown;
+    public int fireDown;
 
     public GameObject curseItem;
     public List<GameObject> curseObjects = new List<GameObject>();
-    private bool isInRange;
+    public bool isInRange;
+    public bool isInRangeItem;
 
     private void Awake()
     {
@@ -31,80 +20,106 @@ public class Inventory : MonoBehaviour
         fireExtinguish();
     }
 
-    private void Update()
-    {
-        PickUpItem();
-
-        BurnItem();
-    }
-
     private void PickUpItem()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isInRange)
+        if (Input.GetKey(KeyCode.E) && isInRangeItem)
         {
             curseObjects.Add(curseItem);
             curseItem.SetActive(false);
             this.GetComponent<sanityHandler>().incorporateSanity(curseObjects.Count);
+            fireDown++;
+            
+            isInRangeItem = false;
+        }
+
+        if (isInRangeItem == true)
+        {
+            //Loop code check as long as its possible to pick up item
+            Invoke("PickUpItem", .1f);
         }
     }
 
     private void BurnItem()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && isInRange)
+        if (Input.GetKey(KeyCode.Q) && isInRange)
         {
-            for (int i = 0; i <= curseObjects.Count; i++)
+            foreach (GameObject curseItem in curseObjects)
             {
                 if (curseItem != null)
                 {
-                    this.GetComponent<sanityHandler>().lowerDrain(curseObjects.Count);
-                    fireDown++;
-
                     fireStart();
 
 
                     Invoke("fireExtinguish", 5f);
+                    curseObjects.Remove(curseItem);
                 }
-                curseObjects.Remove(curseItem);
             }
+        }
+
+        if (isInRange == true && curseObjects.Count > 0)
+        {
+            Invoke("BurnItem", .05f);
         }
     }
 
     private void fireExtinguish()
     {
         fireDown--;
+        this.GetComponent<sanityHandler>().lowerDrain(fireDown);
 
-        if(fireDown == 0)
+        if (fireDown == 0)
         {
-            //This just puts out the fire
-            curseFireAlpha.GetComponent<cursedParticleSystem>().stopSystem();
-            curseFireAdd.GetComponent<cursedParticleSystem>().stopSystem();
-            curseFireGlow.GetComponent<cursedParticleSystem>().stopSystem();
-            curseFireSparks.GetComponent<cursedParticleSystem>().stopSystem();
-            curseSmoke.GetComponent<cursedParticleSystem>().stopSystem();
+            //Grab the list for cursed fire and stop every particle system
+            foreach (GameObject cFire in curseFire)
+            {
+                cFire.GetComponent<cursedParticleSystem>().stopSystem();
+            }
+
+            //Use invoke in order to get a more accurate fire stopping point
+            Invoke("stopFireCrackling", 1.2f);
         }
+    }
+
+    private void stopFireCrackling()
+    {
+        //Stop playing the fire audio
+        curseFire[0].GetComponent<PlayAudioCall>().stopAudioTrack();
     }
 
     private void fireStart()
     {
-        curseFireAlpha.GetComponent<cursedParticleSystem>().startSystem();
-        curseFireAdd.GetComponent<cursedParticleSystem>().startSystem();
-        curseFireGlow.GetComponent<cursedParticleSystem>().startSystem();
-        curseFireSparks.GetComponent<cursedParticleSystem>().startSystem();
-        curseSmoke.GetComponent<cursedParticleSystem>().startSystem();
+        //Grab the list for cursed fire and start every particle system
+        foreach (GameObject cFire in curseFire)
+        {
+            cFire.GetComponent<cursedParticleSystem>().startSystem();
+        }
+
+        //Call the first object in the cursefire list and play the audio
+        curseFire[0].GetComponent<PlayAudioCall>().playAudioTrack();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        isInRange = true;
         if(other.gameObject.tag == "Cursed")
         {
-            //
             curseItem = other.gameObject;
+            isInRangeItem = true;
+            PickUpItem();
+        }
+        else
+        {
+            isInRange = true;
+
+            if (curseObjects.Count > 0)
+            {
+                BurnItem();
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         isInRange = false;
+        isInRangeItem = false;
     }
 }
