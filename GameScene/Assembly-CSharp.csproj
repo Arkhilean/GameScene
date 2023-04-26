@@ -47,11 +47,13 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Mechanics Scripts\ranIMove.cs" />
      <Compile Include="Assets\Scripts\UI Scripts\sanityBar.cs" />
      <Compile Include="Assets\Testingconfine.cs" />
      <Compile Include="Assets\Scripts\Sounds\PlayAudio.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\sanityHandler.cs" />
      <Compile Include="Assets\Scripts\Objects\cursedParticleSystem.cs" />
+     <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\flashLight.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Sounds\PlayAudioCall.cs" />

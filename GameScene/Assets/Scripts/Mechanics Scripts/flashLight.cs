@@ -9,6 +9,9 @@ public class flashLight : MonoBehaviour
     private GameObject fLight;
 
     [SerializeField]
+    private Animator myAnimationController;
+
+    [SerializeField]
     private GameObject fpc;
 
     //A singular bool will be used
@@ -66,8 +69,16 @@ public class flashLight : MonoBehaviour
         }
         else
         {
-            fLight.SetActive(false);
-            fpc.GetComponent<PlayAudioCall>().playAudioTrack();
+            myAnimationController.SetBool("Open", true);
+            Invoke("lightOff", .6f);
         }
+    }
+
+    public void lightOff()
+    {
+        //
+        fLight.SetActive(false);
+        fpc.GetComponent<PlayAudioCall>().playAudioTrack();
+        myAnimationController.SetBool("Open", false);
     }
 }
