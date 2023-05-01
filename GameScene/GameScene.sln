@@ -57,6 +57,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEditor.UI", "UnityEdit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Editor", "Unity.Mathematics.Editor.csproj", "{A1EE865B-3925-E810-4B55-E037FB6B1529}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{5AB5A64F-9DC7-7FFA-8F6C-B24E9512383E}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ShaderGraph.Utilities", "Unity.ShaderGraph.Utilities.csproj", "{6780A80F-CD63-09BD-84F9-DA1F77EAD546}"
 EndProject
 Global
@@ -177,6 +179,10 @@ Global
 		{A1EE865B-3925-E810-4B55-E037FB6B1529}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1EE865B-3925-E810-4B55-E037FB6B1529}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1EE865B-3925-E810-4B55-E037FB6B1529}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AB5A64F-9DC7-7FFA-8F6C-B24E9512383E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AB5A64F-9DC7-7FFA-8F6C-B24E9512383E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AB5A64F-9DC7-7FFA-8F6C-B24E9512383E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AB5A64F-9DC7-7FFA-8F6C-B24E9512383E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6780A80F-CD63-09BD-84F9-DA1F77EAD546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6780A80F-CD63-09BD-84F9-DA1F77EAD546}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6780A80F-CD63-09BD-84F9-DA1F77EAD546}.Release|Any CPU.ActiveCfg = Release|Any CPU
