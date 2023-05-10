@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cursed
+  - Fire
   layers:
   - Default
   - TransparentFX

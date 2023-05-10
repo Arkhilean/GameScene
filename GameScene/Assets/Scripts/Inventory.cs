@@ -5,7 +5,13 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField]
+    private GameObject[] campFire;
+
+    [SerializeField]
     private GameObject[] curseFire;
+
+    [SerializeField]
+    private GameObject instructions;
 
     public int fireDown;
 
@@ -28,7 +34,8 @@ public class Inventory : MonoBehaviour
             curseItem.SetActive(false);
             this.GetComponent<sanityHandler>().incorporateSanity(curseObjects.Count);
             fireDown++;
-            
+            instructions.GetComponent<Instructions>().eOff();
+
             isInRangeItem = false;
         }
 
@@ -49,7 +56,6 @@ public class Inventory : MonoBehaviour
                 {
                     fireStart();
 
-
                     Invoke("fireExtinguish", 5f);
                     curseObjects.Remove(curseItem);
                 }
@@ -69,6 +75,11 @@ public class Inventory : MonoBehaviour
 
         if (fireDown == 0)
         {
+            foreach (GameObject fire in campFire)
+            {
+                fire.GetComponent<cursedParticleSystem>().startSystem();
+            }
+
             //Grab the list for cursed fire and stop every particle system
             foreach (GameObject cFire in curseFire)
             {
@@ -84,10 +95,16 @@ public class Inventory : MonoBehaviour
     {
         //Stop playing the fire audio
         curseFire[0].GetComponent<PlayAudioCall>().stopAudioTrack();
+        campFire[0].GetComponent<PlayAudioCall>().playAudioTrack();
     }
 
     private void fireStart()
     {
+        foreach (GameObject fire in campFire)
+        {
+            fire.GetComponent<cursedParticleSystem>().stopSystem();
+        }
+
         //Grab the list for cursed fire and start every particle system
         foreach (GameObject cFire in curseFire)
         {
@@ -96,12 +113,14 @@ public class Inventory : MonoBehaviour
 
         //Call the first object in the cursefire list and play the audio
         curseFire[0].GetComponent<PlayAudioCall>().playAudioTrack();
+        campFire[0].GetComponent<PlayAudioCall>().stopAudioTrack();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Cursed")
         {
+            instructions.GetComponent<Instructions>().eOn();
             curseItem = other.gameObject;
             isInRangeItem = true;
             PickUpItem();
@@ -109,6 +128,7 @@ public class Inventory : MonoBehaviour
         else
         {
             isInRange = true;
+            instructions.GetComponent<Instructions>().qOn();
 
             if (curseObjects.Count > 0)
             {
@@ -121,5 +141,15 @@ public class Inventory : MonoBehaviour
     {
         isInRange = false;
         isInRangeItem = false;
+
+        if (other.gameObject.tag == "Cursed")
+        {
+            instructions.GetComponent<Instructions>().eOff();
+        }
+
+        else
+        {
+            instructions.GetComponent<Instructions>().qOff();
+        }
     }
 }

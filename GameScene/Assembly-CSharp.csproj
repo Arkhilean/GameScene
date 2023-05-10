@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\Sounds\PlayAudio.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\sanityHandler.cs" />
      <Compile Include="Assets\Scripts\Objects\cursedParticleSystem.cs" />
+     <Compile Include="Assets\Scripts\UI Scripts\Instructions.cs" />
      <Compile Include="Assets\IgniteCoders\Simple Water Shader\Info\Scripts\Readme.cs" />
      <Compile Include="Assets\GameManager.cs" />
      <Compile Include="Assets\Scripts\Mechanics Scripts\flashLight.cs" />

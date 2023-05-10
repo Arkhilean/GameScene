@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1128394753202956127}
   - component: {fileID: 1128394753202956125}
   - component: {fileID: 1128394753202956124}
+  - component: {fileID: 6509711551058883912}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -4804,6 +4805,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6509711551058883912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128394753202956126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7289e64e172cfbd49b30d464e7546085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2224585894256587538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4815,6 +4828,7 @@ GameObject:
   - component: {fileID: 4272425406317631958}
   - component: {fileID: 1780365519597757159}
   - component: {fileID: 2238308427265472251}
+  - component: {fileID: 7131997179907581526}
   m_Layer: 0
   m_Name: Fire Sparks
   m_TagString: Untagged
@@ -9608,6 +9622,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7131997179907581526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224585894256587538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7289e64e172cfbd49b30d464e7546085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2710007212574958943
 GameObject:
   m_ObjectHideFlags: 0
@@ -9620,6 +9646,7 @@ GameObject:
   - component: {fileID: 3884459483693634031}
   - component: {fileID: 2816914911299647224}
   - component: {fileID: 835520478609357786}
+  - component: {fileID: 8430094319806819539}
   m_Layer: 0
   m_Name: Fire Alpha
   m_TagString: Untagged
@@ -14509,6 +14536,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8430094319806819539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2710007212574958943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7289e64e172cfbd49b30d464e7546085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3345820281183453426
 GameObject:
   m_ObjectHideFlags: 0
@@ -14521,6 +14560,7 @@ GameObject:
   - component: {fileID: 5324293441465301875}
   - component: {fileID: 2813927879797761621}
   - component: {fileID: 5269961636140585261}
+  - component: {fileID: 4878128973886224892}
   m_Layer: 0
   m_Name: Fire Add
   m_TagString: Untagged
@@ -19410,6 +19450,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4878128973886224892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3345820281183453426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7289e64e172cfbd49b30d464e7546085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4037447724797180767
 GameObject:
   m_ObjectHideFlags: 0
@@ -19421,6 +19473,7 @@ GameObject:
   - component: {fileID: 2621116728340384808}
   - component: {fileID: 6365352405322142494}
   - component: {fileID: 1536080902252660734}
+  - component: {fileID: 5366945413386123896}
   m_Layer: 0
   m_Name: Fire Glow
   m_TagString: Untagged
@@ -24214,6 +24267,18 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &5366945413386123896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037447724797180767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7289e64e172cfbd49b30d464e7546085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4419799146503664989
 GameObject:
   m_ObjectHideFlags: 0
